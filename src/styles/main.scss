@@ -7,8 +7,10 @@ html, body {
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: var(--font-sans-serif);
   font-size: 1.4rem;
+  flex-direction: column;
 }
 main {
   max-width: var(--max-width);
@@ -103,7 +105,7 @@ button[type=submit] {
     text-align: center;
   }
   a {
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-decoration: none;
     color: var(--color-midgrey);
   }
@@ -114,6 +116,9 @@ footer {
   text-align: center;
   font-size: 1.2rem;
   padding: 10px 0;
+  font-weight: var(--font-sans-serif);
+  letter-spacing: -2px;
+
   a {
     display: block;
     text-decoration: none;
