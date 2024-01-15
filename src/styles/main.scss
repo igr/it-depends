@@ -5,6 +5,7 @@ html, body {
   padding: 0;
 }
 body {
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +16,11 @@ body {
 main {
   max-width: var(--max-width);
   width: var(--max-width);
-  padding: 20px;
+  padding: 10px;
   @media (max-width: 640px) {
     max-width: none;
     font-size: 1rem;
+    width: auto;
   }
 }
 
