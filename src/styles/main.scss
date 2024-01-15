@@ -1,0 +1,123 @@
+@import "root";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-sans-serif);
+  font-size: 1.4rem;
+}
+main {
+  max-width: var(--max-width);
+  width: var(--max-width);
+  padding: 20px;
+  @media (max-width: 640px) {
+    max-width: none;
+    font-size: 1rem;
+  }
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+}
+em {
+  font-style: normal;
+  background-color: var(--color-yellow);
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  @media (max-width: 640px) {
+    font-size: 2.5rem;
+  }
+}
+h2 {
+  font-size: 2rem;
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+  }
+}
+p {
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+textarea {
+  padding: 10px;
+  font-family: var(--font-sans-serif);
+  font-size: 1.6rem;
+  border: 1px dotted var(--color-lightgrey);
+  border-radius: 4px;
+  display: block;
+  &:focus {
+    outline: none !important;
+    border:1px dotted var(--color-midgrey);
+    box-shadow: 0 0 10px var(--color-lightgrey);
+  }
+  &::placeholder {
+    color: var(--color-lightgrey);
+    font-style: italic;
+  }
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
+}
+
+button[type=submit] {
+  margin-top: 10px;
+  border:0;
+  border-radius: 4px;
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  cursor: pointer;
+  padding: 8px 10px 4px 10px;
+  background-color: var(--color-red);
+  color: var(--color-wash);
+  width: 200px;
+  &:hover {
+    background-color: var(--color-teal);
+  }
+  &:active {
+    transform: translateY(4px);
+  }
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+  }
+}
+#answer {
+  h2 {
+    font-style: italic;
+  }
+  h1 {
+    background-color: var(--color-yellow);
+    padding: 0 10px;
+    border-radius: 6px;
+  }
+  p {
+    text-align: center;
+  }
+  a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--color-midgrey);
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-darkgrey);
+  }
+}

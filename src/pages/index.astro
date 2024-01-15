@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import "../styles/main.scss"
+---
+
+<BaseLayout>
+  <main id="question">
+    <h2>Facing a <i>technical challenge</i> or have <i>questions</i> related to <em>software development</em> and
+      <em>engineering</em>?</h2>
+    <h1>Ask anything!</h1>
+    <form method="get" action="/" style="text-align: center" onsubmit="return checkForm();">
+      <label>
+        <textarea id="qt" name="q" style="width: 100%" rows="8" autofocus
+                  placeholder="Type your question here..."></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="sub">
+      Leveraging years of engineering wisdom and a deep dive into numerous software development arenas, our team
+      has engineered an advanced AI engine. Count on us to deliver precise and trustworthy responses to EVERY
+      technical question and programming challenge you encounter! 🔥
+    </p>
+  </main>
+  <main id="answer">
+    <h2 id="q"></h2>
+    <p><a href="" title="permalink">#</a></p>
+    <h1 id="itdepends"></h1>
+  </main>
+
+</BaseLayout>
+
+<style lang="scss">
+  #answer {
+    display: none;
+  }
+
+  #question {
+    display: none;
+  }
+
+  #sub {
+    margin-top: 40px;
+  }
+</style>
+
+<script src="https://unpkg.com/typeit@8.8.0/dist/index.umd.js" is:inline></script>
+
+<script is:inline>
+  function checkForm() {
+    let questionText = document.getElementById("qt").value
+    questionText = questionText.trim();
+    return questionText !== "";
+  }
+
+  const show = function (elem) {
+    elem.style.display = 'block';
+  };
+
+  // Hide an element
+  const hide = function (elem) {
+    elem.style.display = 'none';
+  };
+
+  function showQuestion() {
+    show(document.getElementById("question"));
+    hide(document.getElementById("answer"));
+  }
+
+  function showAnswer(question) {
+    show(document.getElementById("answer"));
+    hide(document.getElementById("question"));
+    question = question.trim();
+    if (!question.endsWith('?')) {
+      question = question + '?';
+    }
+    document.getElementById('q').innerText = question;
+    new TypeIt("#itdepends", {
+      speed: 50,
+      lifeLike: true,
+      cursorSpeed: 800,
+      startDelay: 1800,
+      afterComplete: (instance) => {
+        instance.destroy(true);
+      }
+    })
+      .type("IT depends")
+      .pause(3000)
+      .go();
+  }
+
+  window.onload = (e) => {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    if (params.q) {
+      showAnswer(params.q);
+    } else {
+      showQuestion();
+    }
+  };
+</script>
